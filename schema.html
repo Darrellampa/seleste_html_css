@@ -1,0 +1,100 @@
+<section id="sec2" class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="moving-text">100 days easy return</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">free shipping</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">free shipping</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">free shipping</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">100 days easy return</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">100 days easy return</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">free shipping</div>
+      </div>
+      <div class="swiper-slide">
+        <div class="moving-text">free shipping</div>
+      </div>
+      <!-- Add other slides 
+  here -->
+  
+    </div>
+  
+  </section>
+  <style>
+
+  
+  #sec2 .swiper-wrapper {
+    display: flex;
+    gap: 5px; 
+    background-color: rgb(211, 211, 211);
+
+  height: 40px; /* Adjust the height */
+
+  }
+  
+  #sec2 .swiper-slide {
+    width: calc((100% - 3cm) / 7); 
+  margin-top: -1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    font-size: 12px; 
+    position: relative;
+    transition: transform 10s ease;
+    padding: 0.5cm; 
+  }
+  
+  #sec2 .swiper-slide1.active {
+    transform: translateX(calc(-100% )); 
+  }
+  
+  #sec2 .moving-text {
+    white-space: nowrap;
+  }
+  </style>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    speed: 3000,
+    autoplay: {
+      delay: 0, 
+      disableOnInteraction: false,
+    },
+    effect: 'slide', // Add sliding effect
+    slidesPerView: 1, // Show one slide at a time
+    spaceBetween: 10, // Add space between slides
+    breakpoints: {
+      // Add breakpoints for responsiveness
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
+    },
+    on: {
+      slideChangeTransitionEnd: function () {
+        var activeSlide = this.slides[this.activeIndex];
+        var movingText = activeSlide.querySelector('.moving-text');
+        movingText.style.left = '100%';
+        setTimeout(function () {
+          movingText.style.left = '-100%';
+        }, 20);
+      },
+    },
+  });
+});
+</script>
